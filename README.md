@@ -90,19 +90,19 @@ significativas para entender nuestro código... Estamos entorpeciendo a sus lect
 Haz tus variables sean fáciles de entender y buscar. Herramientas como
 [buddy.js](https://github.com/danielstjules/buddy.js) y
 [ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md)
-pueden ayudan a identificar constantes no nombradas.
+pueden ayudar a identificar constantes no nombradas.
 
 **🙅‍ Mal:**
 
 ```javascript
-// Para que cojones sirve 86400000?
+// Para que sirve 86400000?
 setTimeout(blastOff, 86400000);
 ```
 
 **👨‍🏫 Bien:**
 
 ```javascript
-// Declaralas como constantes nombradas
+// Declarar como constantes nombradas
 const MILISEGUNDOS_POR_DIA = 86400000;
 
 setTimeout(blastOff, MILISEGUNDOS_POR_DIA);
@@ -115,7 +115,7 @@ setTimeout(blastOff, MILISEGUNDOS_POR_DIA);
 **🙅‍ Mal:**
 
 ```javascript
-const direccion = "Calle Mallorca, Barcelona 95014";
+const direccion = "Calle Mi calle, Aguilares 95014";
 const expresionRegularCodigoPostalCiudad = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
 guardarCP(
   direccion.match(expresionRegularCodigoPostalCiudad)[1],
@@ -142,7 +142,7 @@ Explícito es mejor que implícito.
 **🙅‍ Mal:**
 
 ```javascript
-const ciudades = ["Barcelona", "Madrid", "Sitges"];
+const ciudades = ["San Miguel de Tucuman", "Aguilares", "Monteros"];
 ciudades.forEach(l => {
   hacerAlgo();
   hacerAlgoMas();
@@ -157,7 +157,7 @@ ciudades.forEach(l => {
 **👨‍🏫 Bien:**
 
 ```javascript
-const ciudades = ["Barcelona", "Madrid", "Sitges"];
+const ciudades = ["San Miguel de Tucuman", "Aguilares", "Monteros"];
 ciudades.forEach(direccion => {
   hacerAlgo();
   hacerAlgoMas();
@@ -425,7 +425,7 @@ function lexer(tokens) {
 
 ### Elimina código duplicado
 
-Haz todo lo posible para evitar duplicación de código. Duplicar código es
+Hacer todo lo posible para evitar duplicación de código. Duplicar código es
 malo porque significa que para editar un comportamiento... tendrás que modificarlko
 en más de un sitio. ¿Y no queremos trabajar de más, verdad?
 
@@ -618,8 +618,8 @@ más feliz que la gran mayoría de otros programadores.
 ```javascript
 // Variable Global referenciada por la siguiente función
 // Si tuvieramos otra función que usara ese nombre, podría ser un array y lo estaríamos rompiendo
-// If we had another function that used this name, now it'd be an array and it could break it.
-let nombre = 'Ryan McDermott';
+
+let nombre = 'Hector Pichi Campana';
 
 function separarEnNombreYApellido) {
   nombre = nombre.split(' ');
@@ -627,7 +627,7 @@ function separarEnNombreYApellido) {
 
 separarEnNombreYApellido();
 
-console.log(nombre); // ['Ryan', 'McDermott'];
+console.log(nombre); // ['Hector', 'Pichi', 'Campana'];
 ```
 
 **👨‍🏫 Bien:**
@@ -637,11 +637,11 @@ function separarEnNombreYApellido) {
   return nombre.split(' ');
 }
 
-const nombre = 'Ryan McDermott';
+const nombre = 'Hector Pichi Campana';
 const nuevoNombre = separarEnNombreYApellidoe);
 
-console.log(nombre); // 'Ryan McDermott';
-console.log(nuevoNombre); // ['Ryan', 'McDermott'];
+console.log(nombre); // 'Hector Pichci Campana';
+console.log(nuevoNombre); // ['Hector', 'Pichi', 'Campana'];
 ```
 
 **[⬆ Volver arriba](#contenido)**
@@ -745,19 +745,19 @@ y limpios de _testear_. Favorece este estilo de programación siempre que puedas
 ```javascript
 const datosSalidaProgramadores = [
   {
-    nombre: "Uncle Bobby",
+    nombre: "Jose M",
     liniasDeCodigo: 500
   },
   {
-    nombre: "Suzie Q",
+    nombre: "Gabriel V",
     liniasDeCodigo: 1500
   },
   {
-    nombre: "Jimmy Gosling",
+    nombre: "Francisco M ",
     liniasDeCodigo: 150
   },
   {
-    nombre: "Gracie Hopper",
+    nombre: "Lucas M",
     liniasDeCodigo: 1000
   }
 ];
@@ -774,19 +774,19 @@ for (let i = 0; i < datosSalidaProgramadores.length; i++) {
 ```javascript
 const datosSalidaProgramadores = [
   {
-    nombre: "Uncle Bobby",
+    nombre: "Jose M",
     liniasDeCodigo: 500
   },
   {
-    nombre: "Suzie Q",
+    nombre: "Gabriel V",
     liniasDeCodigo: 1500
   },
   {
-    nombre: "Jimmy Gosling",
+    nombre: "Francisco M ",
     liniasDeCodigo: 150
   },
   {
-    nombre: "Gracie Hopper",
+    nombre: "Lucas M",
     liniasDeCodigo: 1000
   }
 ];
@@ -803,7 +803,7 @@ const salidaFinal = datosSalidaProgramadores
 **🙅‍ Mal:**
 
 ```javascript
-if (fsm.state === "cogiendoDatos" && estaVacio(listaNodos)) {
+if (fsm.state === "esperandoDatos" && estaVacio(listaNodos)) {
   // ...
 }
 ```
@@ -812,7 +812,7 @@ if (fsm.state === "cogiendoDatos" && estaVacio(listaNodos)) {
 
 ```javascript
 function deberiaMostrarSpinner(fsm, listaNodos) {
-  return fsm.state === "cogiendoDatos" && estaVacio(listaNodos);
+  return fsm.state === "esperandoDatos" && estaVacio(listaNodos);
 }
 
 if (deberiaMostrarSpinner(fsmInstance, listNodeInstance)) {
@@ -869,11 +869,11 @@ class Avion {
   obtenerAlturaDeVuelo() {
     switch (this.tipo) {
       case "777":
-        return this.cogerAlturaMaxima() - this.conseguirNumeroPasajeros();
+        return this.traerAlturaMaxima() - this.conseguirNumeroPasajeros();
       case "Air Force One":
-        return this.cogerAlturaMaxima();
+        return this.traerAlturaMaxima();
       case "Cessna":
-        return this.cogerAlturaMaxima() - this.getFuelExpenditure();
+        return this.traerAlturaMaxima() - this.getFuelExpenditure();
     }
   }
 }
@@ -889,21 +889,21 @@ class Avion {
 class Boeing777 extends Avion {
   // ...
   obtenerAlturaDeVuelo() {
-    return this.cogerAlturaMaxima() - this.conseguirNumeroPasajeros();
+    return this.traerAlturaMaxima() - this.conseguirNumeroPasajeros();
   }
 }
 
 class AirForceOne extends Avion {
   // ...
   obtenerAlturaDeVuelo() {
-    return this.cogerAlturaMaxima();
+    return this.traerAlturaMaxima();
   }
 }
 
 class Cessna extends Avion {
   // ...
   obtenerAlturaDeVuelo() {
-    return this.cogerAlturaMaxima() - this.getFuelExpenditure();
+    return this.traerAlturaMaxima() - this.getFuelExpenditure();
   }
 }
 ```
@@ -921,11 +921,11 @@ entiende de que manera nos comunicamos con ese módulo/función.
 **🙅‍ Mal:**
 
 ```javascript
-function viajarATexas(vehiculo) {
+function viajarALasTalitas(vehiculo) {
   if (vehiculo instanceof Bicicleta) {
-    vehiculo.pedalear(this.ubicacionActual, new Localizacion("texas"));
+    vehiculo.pedalear(this.ubicacionActual, new Localizacion("Las Talitas"));
   } else if (vehiculo instanceof Car) {
-    vehiculo.conducir(this.ubicacionActual, new Localizacion("texas"));
+    vehiculo.conducir(this.ubicacionActual, new Localizacion("Las Talitas"));
   }
 }
 ```
@@ -933,7 +933,7 @@ function viajarATexas(vehiculo) {
 **👨‍🏫 Bien:**
 
 ```javascript
-function viajarATexas(vehiculo) {
+function viajarALasTalitas(vehiculo) {
   vehiculo.mover(this.ubicacionActual, new Localizacion("texas"));
 }
 ```
@@ -980,7 +980,7 @@ function combina(valor1, valor2) {
 ### No optimizes al máximo
 
 Los navegadores modernos hacen mucha optimización por detrás en tiempo de ejecución.
-Muchas veces, al interntar optimizar tu código... estás perdiendo el tiempo.
+Muchas veces, al intentar optimizar tu código... estás perdiendo el tiempo.
 [Esta es una buena documentación](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
 para ver donde falta optimización. Pon el foco en éstas hasta que estén arregladas/hechas
 si es que se pueden.
@@ -1050,7 +1050,7 @@ que simplemente accediendo a esa propiedad del objeto. ¿Por qué?
   si existe o no existe para seguir mirando a niveles más profundos del objeto.
 - Encapsula la representación interna (en caso de tener que comprobar cosas, mirar en varios sitios...)
 - Es sencillo añadir mensajes y manejos de error cuando hacemos `get` y `set`
-- Te permite poder hacer lazy load en caso de que los datos se recojan de una Base de Datos (bbdd)
+- Te permite poder hacer lazy load en caso de que los datos se recojan de una Base de Datos (BD)
 
 **🙅‍ Mal:**
 
@@ -1076,7 +1076,7 @@ function crearCuentaBancaria() {
   let balance = 0;
 
   // Un "getter", hecho público a través del objeto que retornamos abajo
-  function cogerBalance() {
+  function getBalance() {
     return balance;
   }
 
@@ -1088,7 +1088,7 @@ function crearCuentaBancaria() {
 
   return {
     // ...
-    cogerBalance,
+    getBalance,
     introducirBalance
   };
 }
@@ -1110,14 +1110,14 @@ const Empleado = function(nombre) {
   this.nombre = nombre;
 };
 
-Empleado.prototype.cogerNombre = function cogerNombre() {
+Empleado.prototype.getNombre = function getNombre() {
   return this.nombre;
 };
 
-const empleado = new Empleado("John Doe");
-console.log(`Nombre del empleado: ${empleado.cogerNombre()}`); // Nombre del empleado: John Doe
+const empleado = new Empleado("Nico C");
+console.log(`Nombre del empleado: ${empleado.getNombre()}`); // Nombre del empleado: Nico C
 delete empleado.nombre;
-console.log(`Nombre del empleado: ${empleado.cogerNombre()}`); // Nombre del empleado: undefined
+console.log(`Nombre del empleado: ${empleado.getNombre()}`); // Nombre del empleado: undefined
 ```
 
 **👨‍🏫 Bien:**
@@ -1125,16 +1125,16 @@ console.log(`Nombre del empleado: ${empleado.cogerNombre()}`); // Nombre del emp
 ```javascript
 function crearEmpleado(name) {
   return {
-    cogerNombre() {
+    getNombre() {
       return name;
     }
   };
 }
 
-const empleado = crearEmpleado("John Doe");
-console.log(`Nombre del empleado: ${empleado.cogerNombre()}`); // Nombre del empleado: John Doe
+const empleado = crearEmpleado("Nico C");
+console.log(`Nombre del empleado: ${empleado.getNombre()}`); // Nombre del empleado: Nico C
 delete empleado.name;
-console.log(`Nombre del empleado: ${empleado.cogerNombre()}`); // Nombre del empleado: John Doe
+console.log(`Nombre del empleado: ${empleado.getNombre()}`); // Nombre del empleado: Nico C
 ```
 
 **[⬆ Volver arriba](#contenido)**
@@ -1341,8 +1341,7 @@ class Empleado {
 
   // ...
 }
-
-// Bad because Employees "have" tax data. EmployeeTaxData is not a type of Empleado
+// Incorrecto porque los empleados "tienen" datos fiscales. EmployeeTaxData EmpleadoDatosImpuesto no es un tipo de Empleado
 class InformacionImpuestosEmpleado extends Empleado {
   constructor(ssn, salario) {
     super();
@@ -1445,7 +1444,7 @@ class UserSettings {
 ### Principio de abierto/cerrado (OCP)
 
 Citado por Bertrand Meyer: _"Las entidades de software (clases, módulos, funciones, ...)
-deberían estar abiertas a extensión pere cerradas a modificación."_ ¿Qué significa esto?
+deberían estar abiertas a extensión pero cerradas a modificación."_ ¿Qué significa esto?
 Básicamente significa que los usuarios deberían de ser capaces de añadir funcionalidad
 a la aplicación sin tener que tocar el código creado hasta ahora.
 
@@ -1539,7 +1538,7 @@ Este es un término que asusta para lo sencillo que es. Estrictamente se define 
 "Si S es un subtipo de T, entonces los objetos del tipo T deberían poderse substituir
 por objetos del tipo S".
 
-Un ejemplo práctico vien a ser si tenemos una _clase padre_ y una _clase hija_,
+Un ejemplo práctico bien a ser si tenemos una _clase padre_ y una _clase hija_,
 entonces ambas han de poderse substituir la una por la otra y viceversa sin recibir
 ningún tipo de error o datos erróneos. Un caso práctico es el del cuadrado y el
 rectángulo. Geométricamente, un cuadrado es un rectángulo, pero si lo creamos
