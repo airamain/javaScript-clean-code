@@ -292,7 +292,7 @@ De lejos, es la regla más importante en la ingeniería del software. Cuando
 las funciones hacen más de una cosa, son difíciles de componer y _testear_
 entre otras cosas. Si isolamos las funciones por acciones, éstas pueden ser
 modificadas y mantenidas con mayor facilidad y tu código será mucho más limpio.
-De toda esta guía... si has de aprender algo, que sea esto. Ya estarás mmuy
+De toda esta guía... si has de aprender algo, que sea esto. Ya estarás muy
 por delante de muchos desarrolladores de software.
 
 **🙅‍ Mal:**
@@ -426,12 +426,12 @@ function lexer(tokens) {
 ### Elimina código duplicado
 
 Hacer todo lo posible para evitar duplicación de código. Duplicar código es
-malo porque significa que para editar un comportamiento... tendrás que modificarlko
+malo porque significa que para editar un comportamiento... tendrás que modificarlo
 en más de un sitio. ¿Y no queremos trabajar de más, verdad?
 
 Como caso práctico: Imagina que tienes un restaurante. Llevas el registro del
 inventario: Todos tus tomates, cebollas, ajos, especies, etc... Si tuvieras más
-de una lista que tuvieras que actualizar cada vez que sirves un tomate o usas
+de una lista que actualizar cada vez que sirves un tomate o usas
 una especie, sería más fácil de cometer errores, además de todo el tiempo perdido.
 Si solo tienes una, la posibilidad de cometer una error se reduce a ésta!
 
@@ -934,7 +934,7 @@ function viajarALasTalitas(vehiculo) {
 
 ```javascript
 function viajarALasTalitas(vehiculo) {
-  vehiculo.mover(this.ubicacionActual, new Localizacion("texas"));
+  vehiculo.mover(this.ubicacionActual, new Localizacion("Las Talitas"));
 }
 ```
 
@@ -1101,7 +1101,7 @@ cuenta.introducirBalance(100);
 
 ### Hacer que los objetos tengan atributos/métodos privados
 
-Esto se puede hacer mediante `clojures` _(de ES5 en adelante)_.
+Esto se puede hacer mediante `Closures` _(de ES5 en adelante)_.
 
 **🙅‍ Mal:**
 
@@ -1314,8 +1314,8 @@ const coche = new Coche("Ford", "F-150", "rojo")
 ### Prioriza la composición en vez de la herecia
 
 Como se citó en [_Patrones de Diseño_](https://en.wikipedia.org/wiki/Design_Patterns)
-por "the Gang of Four", deberías priorizar la composición en vez de la herecia
-siempre que puedas. Hay muy buenas razones para usar tanto la herecia como la
+por "the Gang of Four", deberías priorizar la composición en vez de la herencia
+siempre que puedas. Hay muy buenas razones para usar tanto la herencia como la
 composición. El problema principal es que nuestra mente siempre tiende a la herencia
 como primera opción, pero deberíamos de pensar qué tan bien nos encaja la composición
 en ese caso particular porque en muchas ocasiones es lo más acertado.
@@ -1684,7 +1684,7 @@ class DOMTraverser {
 
 const $ = new DOMTraverser({
   nodoRaiz: document.getElementsByTagName("body"),
-  moduloAnimacion() {} // Most of the time, we won't need to animate when traversing.
+  moduloAnimacion() {} // Most of the time, we won't need to animate when traversing. La mayoría de las veces, no necesitaremos animar al atravesar.
   // ...
 });
 ```
@@ -1737,7 +1737,7 @@ Este principio nos dice dos cosas básicamente:
 2. Las abstracciones no deberían depender de detalles si no que, los detalles
    deberían depender de abstracciones.
 
-Esto puede ser algo complejo al principio, pero si has trabajado con AngularJS,
+Esto puede ser algo complejo al principio, pero si trabajaste con AngularJS,
 has visto de manera indirecta esto con la Inyección de Dependencias. Como
 comentaba anteriormente, aunque no son lo mismo, van de la mano. La Inversión de
 Dependencías es posible gracias a la Inyección de Dependencias. _DI_ hace posible
@@ -1782,7 +1782,7 @@ class RastreadorDeInventario {
 
 const rastreadorDeInventario = new RastreadorDeInventario([
   "manzanas",
-  "platanos"
+  "bananas"
 ]);
 rastreadorDeInventario.pedirArticulos();
 ```
@@ -1829,7 +1829,7 @@ class SolicitadorDeInventarioV2 {
 // Construyendo nuestras dependencias desde fuera e inyectandolas, podríamos
 // substituir nuestro Módulo solicitador por uno con websockets o lo que sea
 const rastreadorDeInventario = new RastreadorDeInventario(
-  ["manzanas", "platanos"],
+  ["manzanas", "bananas"],
   new SolicitadorDeInventarioV2()
 );
 rastreadorDeInventario.pedirArticulos();
@@ -1841,15 +1841,15 @@ rastreadorDeInventario.pedirArticulos();
 
 El testing es más importante que la entrega. Si no tienes test o tienes muchos
 que no soy de gran ayuda, cada vez que quieras entregar valor no estarás seguro
-de ue eso funciona debidamente y que nada falla. Puedes decidir con el equipo
-cuál es el porcentaje al que queréis ceñiros pero, la única manera de tener
+de que eso funciona debidamente y que nada falla. Puedes decidir con el equipo
+cuál es el porcentaje al que quiren ajustarce pero, la única manera de tener
 confianza total de que nada falla, es teniendo 100% de covertura de test. Para
 esto, ncesitarás tener una gran herramienta para poder testear pero también
 una que te calcule adecuadamente [el porcentaje cubierto](http://gotwarlost.github.io/istanbul/).
 
 No hay excusas para no escribir tests. Hay
 [un montón de frameworks de JS](http://jstherightway.org/#testing-tools) entre
-los que podréis tu y tu equipo decidir. Una vez hayáis elegido el framework,
+los que puedes tu y tu equipo decidir. Una vez hayas elegido el framework,
 para cada nueva funcionalidad que se quiera añadir a la plataforma, escribir tests.
 Si prefieres hacer _Test-Driven Development_ me parece bien, pero la ide principal de
 los test es dar confianza suficiente al programador para que pueda seguir entregando valor.
@@ -1965,10 +1965,10 @@ get("https://en.wikipedia.org/wiki/Robert_Cecil_Martin")
 
 **[⬆ Volver arriba](#contenido)**
 
-### Async/Await is incluso más limpio que las Promesas
+### Async/Await es incluso más limpio que las Promesas
 
 Las promesas son una elección más limpia que los callbacks pero ES2017/ES8
-trae la funcionalidad de `async/await` que es incluos más limpio que las promesas.
+trae la funcionalidad de `async/await` que es incluso más limpio que las promesas.
 Todo lo que tienes que hacer es añadir el prefijo `async` a una función y entonces
 ya podemos usar esa función de manera imperative sin ningún `.then()`. La
 palabra `await` la usarás para hacer que ese código asincrono se comporte de
@@ -2022,7 +2022,7 @@ de código. Además se notifica siempre en la consola del navegador.
 ### No ignores los errores capturados
 
 No hacer nada con los errores capturados no te da la opción de anticiparte
-o arreglar dicho error. El printar el error por la consola del navegador
+o arreglar dicho error. El pintar el error por la consola del navegador
 no es una solución, pues la gran mayoría de veces nadie es consciente de eso
 y el error pasas desapercibido. Envuelve tu código con `try/catch` y es ahí
 donde tendrás que elaborar tu plan de reacción a posibles errores
@@ -2061,7 +2061,7 @@ ignorar errores capturados en el `try/catch`.
 **🙅‍ Mal:**
 
 ```javascript
-cogerDatos()
+traerDatos()
   .then(datos => {
     functionQueDeberiaLanzarError(datos);
   })
@@ -2073,7 +2073,7 @@ cogerDatos()
 **👨‍🏫 Bien:**
 
 ```javascript
-cogerDatos()
+traerDatos()
   .then(datos => {
     functionQueDeberiaLanzarError(datos);
   })
@@ -2103,8 +2103,8 @@ formateando el texto es un pasada!
 
 Como ya hemos dicho, `javascript` es un lenguage no tipado así pues, la
 capitalización de las variables importa, y mucho. Estas son reglas totalmente
-subjetivas así que como equipo, podéis elegir lo que más os guste/convenga.
-La cuestión es que independientemente de lo que decidáis, seáis consistentes.
+subjetivas así que como equipo, podemos elegir lo que más nos guste/convenga.
+La cuestión es que independientemente de lo que decidamos, seamos consistentes.
 
 **🙅‍ Mal:**
 
@@ -2146,7 +2146,7 @@ Si una función llama a otra, haz que esta función que va a ser llamada esté
 lo más cerca posible de la función que la llama. Idealmente, situa siempre
 la función que va a ser llamada justo después de la función que la ejecuta.
 ¿El motivo? Pues normalmente acostumbramos a leer de arriba abajo y tampoco
-queremos tener que hacer _scroll_ hasta abajo del todo del ficheor para volver
+queremos tener que hacer _scroll_ hasta abajo del todo del archivo para volver
 a subir.
 
 **🙅‍ Mal:**
@@ -2235,11 +2235,11 @@ review.executarRevision();
 
 ### Comenta únicamente la lógica de negocio que es compleja
 
-Los comentarios son una disculpa, no un requerimiento. Supuesatmente se dice
+Los comentarios son una disculpa, no un requerimiento. Supuesatamente se dice
 que un buen código debería comentarse por si mismo. Un código perfecto no
 está optimizado para la máquina sinó que lo está para la manteniblidad de éste
 por un compañero o futuro compañero. Para esto, ha de ser lo más semántico posible.
-El código ha de estar escrito para que niños pequeños lo entiendan.
+El código ha de estar escrito para que "niños" lo entiendan.
 
 **🙅‍ Mal:**
 
@@ -2253,7 +2253,7 @@ function hashIt(datos) {
 
   // Iteramos a través de cada carácter de los datos
   for (let i = 0; i < tamaño; i++) {
-    // Coger código del caracter
+    // traer código del caracter
     const char = datos.charCodeAt(i);
     // Crear el hash
     hash = (hash << 5) - hash + char;
@@ -2311,7 +2311,7 @@ hacerCosas();
 
 Recuerda ¡Usa el control de versioens! No hay motivo alguno para tener código
 muerto, código comentado y aún menos, un diadrio o resumen de modificaciones en
-tus comentarios. Si quieres ver las modificaciones, usa `git log`, la herramiento
+tus comentarios. Si quieres ver las modificaciones, usa `git log`, la herramienta
 `blame` o incluso el `history`.
 
 **🙅‍ Mal:**
@@ -2342,8 +2342,7 @@ function combinar(a, b) {
 
 Normalmente acostumbran a ser molestos. Deja que las variables y las funciones
 hagan su función con sus identaciones naturales y de esta manera, formateen el
-có correctamente
-.
+codigo correctamente.
 
 **🙅‍ Mal:**
 
